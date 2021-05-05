@@ -1,0 +1,263 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  color: var(--textColor);
+}
+
+body {
+  background: var(--secondaryColor);
+  color: var(--textColor);
+  background-image: url(../image/bg_main.jpg);
+  background-repeat: repeat-y;
+  background-size: contain;
+  /* background-position: center; */
+}
+
+#userMoney {
+  height: 40px;
+  width: 90px;
+  display: inline-block;
+  margin-left: 5px;
+  padding: 0 5px;
+  background-color: black;
+  color: white;
+  font-family: "Cursed Timer ULiL Font";
+  font-size: 18px;
+  text-align: right;
+  line-height: 30px;
+}
+
+/* Theme */
+
+#themeImage {
+  position: relative;
+  height: 450px;
+  width: 960px;
+  margin: 100px auto 50px auto;
+}
+
+/* 往前 & 往後符號 */
+
+#forRightIcon,
+#forLeftIcon {
+  position: absolute;
+  top: 160px;
+  color: var(--textColor);
+  font-size: 60px;
+  cursor: pointer;
+}
+
+#forRightIcon {
+  right: 15px;
+}
+
+#forLeftIcon {
+  left: 15px;
+}
+
+/* carousel slider */
+
+#themePage {
+  position: relative;
+  height: 420px;
+  width: 840px;
+  margin: 0px auto;
+  overflow: hidden;
+  box-shadow: 1px 1px 20px 1px rgba(50, 50, 50, 0.6);
+}
+
+#sliderBox {
+  position: absolute;
+  left: 0px;
+  height: 420px;
+  display: flex;
+}
+
+.slider {
+  height: 420px;
+  width: 840px;
+  flex-shrink: 0;
+  background-color: var(--primaryColor);
+}
+
+.slider img {
+  /* height: 100%; */
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#dotBox {
+  height: 16px;
+  text-align: center;
+  line-height: 10px;
+}
+
+.dot {
+  margin: 15px 10px;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  background: white;
+  opacity: 0.4;
+  cursor: pointer;
+  /* text-indent: -9999px; */
+}
+
+.dot.active {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 100%;
+  opacity: 1;
+  outline: none;
+}
+
+/* 標題 */
+
+.title {
+  margin: 100px auto 20px auto;
+}
+
+/* NEWS */
+#newsBox {
+  height: 160px;
+  width: 720px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  border: 1px solid var(--primaryDark);
+  background-color: var(--secondaryDark);
+  border-radius: 20px;
+  box-shadow: 1px 1px 15px 1px rgba(50, 50, 50, 0.9);
+}
+
+#newsBox > div {
+  margin: 5px auto;
+}
+
+/* NEWS */
+#newsBox {
+  height: 160px;
+  width: 720px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  border: 1px solid var(--primaryDark);
+  background-color: var(--secondaryDark);
+  border-radius: 20px;
+  box-shadow: 1px 1px 15px 1px rgba(50, 50, 50, 0.9);
+}
+
+#newsBox > div {
+  margin: 5px auto;
+}
+
+#newsBox > div > span:nth-of-type(1) {
+  margin-right: 20px;
+}
+
+/* gamebox */
+
+#gameBox {
+  width: 960px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: #808080;
+}
+
+.gameCard {
+  position: relative;
+  height: 180px;
+  width: 250px;
+  /* margin: 10px; */
+  border: 1px solid var(--primaryDark);
+  background-color: var(--primaryColor);
+  box-shadow: 1px 1px 20px 1px rgba(50, 50, 50, 0.9);
+}
+
+.gameCard > div {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background: linear-gradient(rgba(60, 60, 60, 0.7), rgba(60, 60, 60, 0.7));
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.gameCard > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Game Rules Tab */
+.tab {
+  width: 960px;
+  display: flex;
+  align-items: center;
+  margin: 40px auto 25px auto;
+  overflow: hidden;
+  border: 1px solid #840011;
+  border-radius: 5px;
+  background-color: var(--secondaryDark);
+}
+
+.tab button {
+  float: left;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  transition: 0.3s;
+  background-color: inherit;
+  color: var(--textColor);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tab button:hover {
+  background-color: var(--primaryColor);
+}
+
+.tab button.active {
+  background-color: var(--primaryDark);
+  color: var(--textColor);
+}
+
+.tab > p {
+  height: 20px;
+  border: 1px solid #840011;
+}
+
+.tabcontent {
+  width: 960px;
+  margin: 0 auto;
+  display: none;
+  padding: 6px 20px;
+  border: 1px solid #840011;
+  border-radius: 5px;
+  background-color: var(--secondaryDark);
+}
+
+.tabcontent > div {
+  margin: 10px;
+  text-align: center;
+  text-shadow: 0px 5px 10px #ce0000, 0px -5px 10px #ce0000, 5px 0px 10px #ce0000,
+    -5px 0px 10px #ce0000;
+  font-size: 20px;
+}
+
+.tabcontent p {
+  font-size: 16px;
+}
+
+.rulesImg {
+  margin: 0 20px 0 0;
+}

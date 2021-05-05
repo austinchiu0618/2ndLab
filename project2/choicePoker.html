@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice Poker</title>
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+    <!-- font-awesome5.15.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Jquery -->
+
+    <style>
+        @import "./CSS/all.css";
+        @import "./CSS/choicePoker.css";
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html"><img id="logo" src="./image/logo.png" alt=""></img></a>
+    </nav>
+    <div id="gameBox">
+        <div id="message"></div>
+        <!-- 功能鍵 -->
+        <button id="startBtn"></button>
+        <div id="userInfo">
+            <div id="userName"></div>
+            <div id="userMoney"></div>
+        </div>
+        <div id="exchangBox">
+            <button id="exchangeYES">交換<br>する</button>
+            <button id="exchangeNO">交換<br>しない</button>
+        </div>
+        <!-- 下注區 -->
+        <div class="rasieBox">
+            <button id="upBtn"></button>
+            <span id="racerMoney">0</span>
+            <button id="downBtn"></button>
+            <button id="rasieGiveup">放 棄</button>
+            <button id="rasieCheck">確 認</button>
+        </div>
+        <!-- 比大小 -->
+        <div id="whoWinBox">
+            <button id="whoBig">強い順</button>
+            <button id="whoSmall">弱い順</button>
+        </div>
+        <!-- 籌碼 -->
+        <div id="boxForChip">
+            <div id="compChipBox">
+                <div class="putChip"><img class="chips" src="./image/choicePoker/chip.png" alt=""></div>
+                <p class="chipFont" id="compChipNumber">1</p>
+                <p class="chipFont">枚</p>
+            </div>
+            <div id="playerChipBox">
+                <p class="chipFont" id="playerChipNumber">1</p>
+                <p class="chipFont">枚</p>
+                <div class="putChip"><img class="chips" src="./image/choicePoker/chip.png" alt=""></div>
+            </div>
+        </div> 
+
+        <!-- 牌 -->
+        <div id="computerDisard"></div>
+        <div id="computerHandCard"></div>
+        <div id="computerCardType"></div>
+        <div id="playerHandCard"></div>
+        <div id="playrerCardType"></div>
+        <img id="finishImg" >
+        <!-- src='./image/choicePoker/win.png' -->
+    </div>
+    <div class="FinshBack"></div>
+    <!-- <button id="testbig">test</button> -->
+    <script src="./JavaScript/chiocePoker.js"></script>
+
+</body>
+
+</html>

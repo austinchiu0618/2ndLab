@@ -1,0 +1,225 @@
+body {
+  background: var(--secondaryColor);
+  color: var(--textColor);
+  background-image: url(../image/bg_main.jpg);
+  background-repeat: repeat-y;
+  background-size: cover;
+  /* background-position: center; */
+}
+
+/* 標題 */
+
+.title {
+  margin: 120px auto 20px auto;
+}
+
+/* register */
+
+#registerBox {
+  height: 550px;
+  width: 720px;
+  display: flex;
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  /* align-items: center; */
+  margin: 40px auto;
+  padding: 40px 20px 20px 20px;
+  border: 1px solid var(--primaryDark);
+  background-color: var(--secondaryDark);
+  border-radius: 20px;
+  box-shadow: 1px 7px 20px 1px rgba(90, 90, 90, 0.7);
+}
+
+/* 帳號 密碼 */
+
+#registerForm {
+  position: relative;
+  width: 380px;
+}
+
+.info > input {
+  height: 50px;
+  width: 380px;
+  /* margin:15px; */
+  border: 1px solid var(--secondaryLight);
+  border-radius: 5px;
+  background-color: var(--secondaryColor);
+  outline: 0;
+  color: var(--textColor);
+  font-size: 20px;
+}
+form > .info input {
+  padding: 5px 20px 0px 20px;
+}
+
+.info > input:focus {
+  border: 1px solid var(--primaryLight);
+}
+
+/* 帳號跟密碼圖片 */
+
+.info {
+  position: relative;
+}
+
+.info:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 330px;
+  width: 35px;
+  height: 35px;
+  opacity: 0.4;
+  z-index: 99;
+}
+
+.info.user:before {
+  background: url("../image/user.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.info.pwd:before {
+  background: url("../image/lock.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.info.pwdcheck:before {
+  background: url("../image/lockcheck.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.info.email:before {
+  background: url("../image/mail.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* input動畫文字 */
+
+.info > input + label {
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  height: 16px;
+  font-size: 20px;
+  color: grey;
+  transition-duration: 0.3s;
+  cursor: text;
+}
+
+.info > input:focus + label,
+input.active + label {
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  height: 16px;
+  background-color: var(--secondaryDark);
+  color: grey;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.info > input:focus + label {
+  transition-duration: 0.3s;
+}
+
+/* 自動填入的背景*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s; /*透明*/
+  -webkit-text-fill-color: #fff; /*字體顏色*/
+}
+
+form > div {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+#btnIsOk,
+#btnIsCancel {
+  height: 60px;
+  width: 170px;
+  border: 1px solid var(--secondaryLight);
+  border-radius: 5px;
+  background-color: var(--primaryColor);
+  outline: 0;
+  color: var(--textColor);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#btnIsOk {
+  margin-right: 15px;
+}
+#btnIsCancel {
+  margin-left: 15px;
+}
+
+/* 錯誤訊息 */
+.haveWrong {
+  height: 10px;
+  margin: 10px 0 20px 0;
+  padding: 0px 0px 0px 10px;
+  color: var(--primaryLight);
+  line-height: 10px;
+}
+
+/*  */
+/* Popup box BEGIN */
+.regFinsh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  /* display: none; */
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  z-index: 10000;
+}
+
+.regFinsh > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 150px;
+  width: 300px;
+  border: 2px solid var(--primaryDark);
+  border-radius: 10px;
+  background: var(--textColor);
+  color: var(--secondaryDark);
+  font-size: 20px;
+}
+
+.regFinsh > div > div,
+.regFinsh > div > button {
+  height: 30px;
+  width: 200px;
+  margin: 10px 0;
+  color: var(--secondaryDark);
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.regFinsh > div > button{
+  background: var(--primaryDark);
+  color: var(--textColor);
+}
+
+/* Popup box BEGIN */

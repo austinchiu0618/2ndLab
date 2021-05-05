@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap");
+/* font-family: 'Noto Sans TC', sans-serif; */
+
+/* font-family: 'Noto Serif TC', serif; */
+
+@font-face {
+  font-family: "Cursed Timer ULiL Font";
+  src: url("../CursedTimerUlil-Aznm.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primaryColor: #bb2236;
+  --primaryLight: #f35a60;
+  --primaryDark: #840011;
+  --secondaryColor: #161616;
+  --secondaryLight: #3c3c3c;
+  --secondaryDark: #000000;
+  --textColor: #ffffff;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+/* NAV */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primaryDark);
+  z-index: 99;
+}
+
+#logo {
+  height: 60px;
+  margin: 0px 20px 0px 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+#navLink {
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navLink > div {
+  position: relative;
+  height: 32px;
+  /* width: 100%; */
+  display: inline-block;
+  margin: 0px 0 0px -4px;
+  padding: 0 15px;
+  color: var(--textColor);
+  font-size: 20px;
+  text-align: center;
+  line-height: 32px;
+  overflow: hidden;
+}
+#navLink > p {
+  height: 15px;
+  border-right: 1px solid gray;
+  display: inline-block;
+}
+
+/* */
+
+#logout {
+  cursor: pointer;
+}
+
+#logout,
+#navLink > div > a {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: color 0.2s ease-out;
+}
+
+#logout::after,
+#navLink > div > a::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 2px;
+  transform: translateX(-100%);
+  transition: 0.5s;
+  animation: link-mouseleave 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#logout:hover::after,
+#navLink > div > a:hover::after {
+  animation: link-mouseover 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+@keyframes link-mouseover {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    background-color: var(--textColor);
+    transform: translateX(0);
+  }
+}
+
+@keyframes link-mouseleave {
+  0% {
+    transform: translateX(0);
+    background-color: var(--textColor);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/*  */
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: var(--textColor);
+}
+
+/* a:hover {} */
+
+/* a:active {} */
+
+.title {
+  color: #ffd700;
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  text-align: center;
+  font-weight: 800;
+  font-family: "Noto Serif TC", serif;
+}
+
+.title img {
+  height: 36px;
+  object-fit: cover;
+  object-position: center;
+}
+
+hr {
+  width: 50px;
+  /* border: 2px solid gray; */
+}

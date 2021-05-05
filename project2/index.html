@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>狂賭之淵</title>
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+    <!-- font-awesome5.15.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Jquery -->
+
+    <style>
+        @import "./CSS/all.css";
+        @import "./CSS/index.css";
+
+        #navLink>div:nth-of-type(6) {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html"><img id="logo" src="./image/logo.png" alt=""></img></a>
+        <div id="navLink">
+            <div><a href="#newsLink">News</a></div>
+            <p></p>
+            <div><a href="#gameLink">Game</a></div>
+            <p></p>
+            <div><a href="#rulesLink">Game Rules</a></div>
+            <p></p>
+            <div><a href="./shop.html">Shop</a></div>
+            <p></p>
+            <div id="inOut"><a href="login.html">Login</a></div>
+        </div>
+    </nav>
+
+    <!-- Theme -->
+    <div id="themeImage">
+        <div id="themePage">
+            <div id="sliderBox">
+                <div class="slider">
+                    <a href="./register.html"><img src="./image/index/theme01.png" alt=""></a>
+                </div>
+                <div class="slider">
+                    <a href="./race.html"><img src="./image/index/theme02.png" alt=""></a>
+                </div>
+                <div class="slider">
+                    <a href=""><img src="./image/index/theme03.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <!-- 左右移動 -->
+        <div id="forRightIcon"><i class="fas fa-arrow-alt-circle-right"></i>
+        </div>
+        <div id="forLeftIcon"><i class="fas fa-arrow-alt-circle-left"></i>
+        </div>
+        <div id="dotBox">
+            <!-- <span class="dot"></span> -->
+        </div>
+    </div>
+    <div id="newsLink"></div>
+    <div class="title"><img src="./image/news.png" alt=""></div>
+    <hr color="#808080">
+    <div id="newsBox">
+        <div><span>2021.02.28</span><span>登録ユーザー数30万人突破記念！</span></div>
+        <div><span>2021.02.24</span><span>新作! PUIPUI Race 配信開始!</span></div>
+    </div>
+    <div class="title"><img src="./image/games.png" alt=""></div>
+    <hr color="#808080">
+    <div id="gameLink"></div>
+    <div id="gameBox">
+        <a href="./race.html">
+            <div class="gameCard">
+                <img src="./image/index/gameImage01.png" alt="">
+                <div>PUIPUI Race</div>
+            </div>
+        </a>
+        <a href="./choicePoker.html">
+            <div class="gameCard">
+                <img src="./image/index/rule06_img05.jpg" alt="">
+                <div>選択ポーカー</div>
+            </div>
+        </a>
+        <a href="">
+            <div class="gameCard" id="testbtn">
+                <div>2021年夏配信予定
+                </div>
+            </div>
+        </a>
+    </div>
+    <div id="rulesBoxLink"></div>
+    <div class="title"><img src="./image/gamerule.png" alt=""></div>
+    <hr>
+    <div id="rulesBox">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'rules01')" id="defaultOpen">選択ポーカー</button>
+            <p></p>
+            <button class="tablinks" onclick="openCity(event, 'rules02')">ダブル神経衰弱</button>
+            <p></p>
+            <button class="tablinks" onclick="openCity(event, 'rules03')">投票ジャンケン
+            </button>
+        </div>
+
+        <div id="rules01" class="tabcontent">
+            <div>選択ポーカー</div>
+            <p></p>
+            <p>基本的なルールはクローズドポーカー(日本における一般的なポーカー)と同じ。</p>
+            <p>
+                5枚の手札を各自一度きりチェンジし、役の優劣を競う。使用するデッキはJOKER１枚入りの53枚1組。
+                JOKERは常に最強の役を構成するワイルドカードとして扱う。
+            </p>
+            <img class="rulesImg" src="./image/index/rule06_img01.jpg" alt=""> <img src="./image/index/rule06_img02.jpg"
+                alt="">
+            <p>
+                しかし、このポーカーには「フォールド（ゲームから降りる）」も「コール（同じ金額を賭ける）」もない。
+                プレイヤーにできるのは「ベッド（賭ける）」と「レイズ（上乗せして賭ける）」のみ。
+                しかもその賭け枚数に上限はなし。
+            </p>
+
+            <p>より高い金を積んだ者には役の強い順（Stronger）か弱い順（Weaker）かを「選択（チョイス）」する権利が与えられる。</p>
+            <img class="rulesImg" src="./image/index/rule06_img03.jpg" alt="">
+            <p>
+                通常のポーカーなら当然役の強弱通り、勝敗が決定するが
+                このゲームでは「チョイス」の権利を得た者が、「強い役が勝つ」か「弱い役が勝つ」か選ぶことができる。
+            </p>
+            <p>
+                「強い順」なら通常のポーカーと同じく、より強い役を作った者の勝利。
+                一方「弱い順」なら役の優劣が真逆になり、より弱い役を作った者の勝利となる。
+                つまり、金さえ積めばブタでも最強の役にできる。
+            </p>
+            <img class="rulesImg" src="./image/index/rule06_img04.jpg" alt=""> <img src="./image/index/rule06_img05.jpg"
+                alt="">
+
+        </div>
+        <div id="rules02" class="tabcontent">
+            <div>ダブル神経衰弱</div>
+            <p></p>
+            <p>ゲームの当事者以外の、クラスメイトの30人にグー・チョキ・パーのいずれかをカードに記入してもらう。</p>
+            <img class="rulesImg" src="./image/index/rule01_img01.jpg" alt=""> <img src="./image/index/rule01_img02.jpg"
+                alt="">
+            <p>2参加者全員が記入し終わったら、ゲームの当事者に見えないように一つの箱に入れていく。（投票）</p>
+            <img class="rulesImg" src="./image/index/rule01_img03.jpg" alt=""> <img src="./image/index/rule01_img04.jpg"
+                alt="">
+            <p>
+                3ゲームの当事者は、箱の中から3枚ずつカードを引き、自分の手札とする。
+            </p>
+            <img class="rulesImg" src="./image/index/rule01_img05.jpg" alt=""> <img src="./image/index/rule01_img06.jpg"
+                alt="">
+            <p>4手札の中から1枚だけ選び、ジャンケンをする。あいこの場合は、残りの2枚から選んで再度ジャンケン。3回ともあいこなら引き分け。</p>
+            <img class="rulesImg" src="./image/index/rule01_img07.jpg" alt=""> <img src="./image/index/rule01_img08.jpg"
+                alt="">
+            <p>普通のジャンケンとちがって、手札による制限があり、グー・チョキ・パー全部を出せるとは限らない。自分の手札から類推するその不平等な読み合いが面白い。</p>
+        </div>
+
+        <div id="rules03" class="tabcontent">
+            <div>投票ジャンケン</div>
+            <p></p>
+        </div>
+    </div>
+
+    <script src="./JavaScript/index.js"></script>
+
+</body>
+
+</html>

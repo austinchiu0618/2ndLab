@@ -1,0 +1,311 @@
+body {
+  background-image: url(../image/race/grass.jpg);
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: 500px;
+}
+
+#box {
+  position: relative;
+  width: 1260px;
+  margin: 100px auto 0 auto;
+  display: flex;
+}
+
+#raceTrack {
+  position: relative;
+  left: 0;
+  height: 460px;
+  width: 960px;
+  display: inline-block;
+  background-image: url(../image/race/raceTrack.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 1s;
+}
+
+/* 信號燈 */
+#startLight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+  background-color: black;
+  border: 3px solid gray;
+  border-radius: 25px;
+  opacity: 0;
+  transition: 1s;
+}
+
+#startLight > div {
+  height: 80px;
+  width: 80px;
+  background-color: black;
+  border: 3px solid gray;
+  border-radius: 50%;
+  /* transition: 1s; */
+}
+
+/* 比賽結束 */
+#raceFinsh {
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+  height: 450px;
+  width: 600px;
+  margin: auto;
+  background: url(../image/race/finish.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+  transition: 1s;
+  z-index: 99;
+}
+
+#raceFinsh > img:nth-of-type(1) {
+  position: absolute;
+  top: 130px;
+  left: 205px;
+  width: 190px;
+  object-fit: cover;
+  object-position: center;
+}
+#raceFinsh > img:nth-of-type(2) {
+  position: absolute;
+  top: 175px;
+  left: 5px;
+  width: 190px;
+  object-fit: cover;
+  object-position: center;
+}
+#raceFinsh > img:nth-of-type(3) {
+  position: absolute;
+  top: 220px;
+  left: 400px;
+  width: 190px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 跑者1 */
+#racerBox {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: 2s;
+}
+
+#racerOne {
+  top: 14px;
+  left: 510px;
+}
+
+/* 跑者2 */
+
+#racerTwo {
+  top: 62px;
+  left: 380px;
+}
+
+/* 跑者3 */
+
+#racerThree {
+  top: 110px;
+  left: 250px;
+}
+
+.racers {
+  position: absolute;
+  width: 70px;
+}
+
+#raceTrack img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+  animation: runAnime 1s infinite linear;
+  animation-play-state: paused;
+  /* transform-origin: bottom left ; */
+}
+
+@keyframes runAnime {
+  0% {
+    transform: rotate3d(0, 0, 60, 0deg);
+  }
+  20% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  40% {
+    transform: rotate3d(0, 0, 1, 10deg);
+  }
+  60% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, 10deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+/* 下注平台 */
+
+#gambling {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  height: 460px;
+  width: 280px;
+  border: 5px solid var(--secondaryColor);
+  background: var(--primaryDark);
+  border-radius: 25px;
+  transition: 1s;
+}
+
+/* 會員資料 */
+
+#userInfo {
+  height: 70px;
+  width: 260px;
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#userName {
+  height: 40px;
+  width: 140px;
+  padding: 0 5px;
+  font-size: 20px;
+  color: var(--textColor);
+  text-align: center;
+  line-height: 40px;
+}
+
+#userMoney {
+  height: 40px;
+  width: 120px;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  font-family: "Cursed Timer ULiL Font";
+  font-size: 25px;
+  text-align: right;
+  line-height: 35px;
+}
+
+/* 下注區 */
+
+.rasieBox {
+  position: relative;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  padding: 0 0 0 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.raceNO {
+  height: 35x;
+  width: 35px;
+  margin-right: 20px;
+  border: 1px solid white;
+  border-radius: 50%;
+  color: var(--textColor);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 35px;
+}
+
+.racerMoney {
+  height: 40px;
+  width: 80px;
+  margin-right: 10px;
+  padding: 5px;
+  background-color: black;
+  font-family: "Cursed Timer ULiL Font";
+  color: white;
+  font-size: 25px;
+  text-align: right;
+  line-height: 40px;
+}
+.upBtn,
+.downBtn,
+.upBtn:active,
+.downBtn:active {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  margin: 0 10px 0 0px;
+  border: 0px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.upBtn {
+  background: url(../image/race/plus_b.svg);
+}
+
+.upBtn:active {
+  background: url(../image/race/plus.svg);
+}
+
+.downBtn {
+  background: url(../image/race/minus_b.svg);
+}
+
+.downBtn:active {
+  background: url(../image/race/minus.svg);
+}
+
+#startBtn,
+#startBtn:active {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: 20px auto;
+  border: 0px;
+  outline: 0;
+  cursor: pointer;
+}
+
+#startBtn {
+  background: url(../image/race/start.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#startBtn:active {
+  background: url(../image/race/start_B.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.FinshBack{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  z-index: 2;
+  cursor: pointer;
+}

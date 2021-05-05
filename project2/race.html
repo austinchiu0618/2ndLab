@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUI PUI Race</title>
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+    <!-- font-awesome5.15.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Jquery -->
+
+    <style>
+        @import "./CSS/all.css";
+        @import "./CSS/race.css";
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html"><img id="logo" src="./image/logo.png" alt=""></img></a>
+    </nav>
+    <div id="box">
+        <div id="raceTrack">
+            <div id="racerBox">
+                <div id="racerOne" class="racers"><img src="./image/race/racerOne.png" alt=""></div>
+                <div id="racerTwo" class="racers"><img src="./image/race/racerTwo.png" alt=""></div>
+                <div id="racerThree" class="racers"><img src="./image/race/racerThree.png" alt=""></div>
+            </div>
+            <div id="startLight">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="raceFinsh">
+            <img alt="">
+            <img alt="">
+            <img alt="">
+        </div>
+        <div id="gambling">
+            <div id="userInfo">
+                <div id="userName">Guest</div>
+                <div id="userMoney"></div>
+            </div>
+            <div class="rasieBox">
+                <div class="raceNO">1</div>
+                <button class="downBtn"></button>
+                <div id="racerOneMoney" class="racerMoney">0</div>
+                <button class="upBtn"></button>
+            </div>
+            <div class="rasieBox">
+                <div class="raceNO">2</div>
+                <button class="downBtn"></button>
+                <div id="racerTwoMoney" class="racerMoney">0</div>
+                <button class="upBtn"></button>
+            </div>
+            <div class="rasieBox">
+                <div class="raceNO">3</div>
+                <button class="downBtn"></button>
+                <div id="racerThreeMoney" class="racerMoney">0</div>
+                <button class="upBtn"></button>
+            </div>
+            <button id="startBtn"></button>
+        </div>
+    </div>
+    <div class="FinshBack"></div>
+    <script src="./JavaScript/race.js" defer></script>
+    <script>
+
+    </script>
+</body>
+
+
+
+</html>

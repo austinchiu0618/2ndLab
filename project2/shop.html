@@ -1,0 +1,131 @@
+<!-- 產品頁面 購物車頁面 結帳頁面 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+    <!-- font-awesome5.15.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Jquery -->
+
+    <style>
+        @import "./CSS/all.css";
+        @import "./CSS/shop.css";
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html"><img id="logo" src="./image/logo.png" alt=""></img></a>
+        <div id="navLink">
+            <div><a href="./index.html#newsLink">News</a></div>
+            <p></p>
+            <div><a href="./index.html#gameLink">Game</a></div>
+            <p></p>
+            <div><a href="./index.html#rulesLink">Game Rules</a></div>
+            <p></p>
+            <div><a href="./shop.html">Shop</a></div>
+            <p></p>
+            <div id="inOut"><a href="login.html">Login</a></div>
+        </div>
+    </nav>
+    <div class="title"><img src="./image/shop.png" alt=""></div>
+    <hr color="#808080">
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'boxOne')" id="defaultOpen">チャージ</button>
+        <p></p>
+        <button class="tablinks" onclick="openCity(event, 'boxTwo')">グッズ</button>
+        <p></p>
+        <button class="tablinks" onclick="openCity(event, 'boxThree')">イベント</button>
+    </div>
+
+    <div id="boxOne" class="tabcontent">
+        <ul id="boxOneUl" class="productBox">
+        </ul>
+    </div>
+    <div id="boxTwo" class="tabcontent">
+    </div>
+    <div id="boxThree" class="tabcontent">
+    </div>
+
+    <div class="backBlack"></div>
+    <div class="productDetail">
+        <div></div>
+        <div></div>
+    </div>
+
+
+    <script>
+        var userInfo = '';
+        $(document).ready(function () {
+            //是否登入
+            $.ajax({
+                type: "GET",
+                url: "/00_LAB/API/home/userInfo",
+                dataType: "json",
+                error: err => {
+                    console.log(err["responseText"])
+                },
+            }).then(function (e) {
+                userInfo = e
+                $("#inOut").html('<a href="/00_LAB/API/home/logout">Logout</a>')
+                $("#navLink").append('<p></p>')
+                $("#navLink").append(`<div id="iamuser">${userInfo['userName']} <span id="userMoney">${userInfo['gameMoney']}</span></div>`)
+                if (`${userInfo['gameMoney']}` > 30000) { iamuser.style.color = "yellow" }
+            })
+
+            //儲值商品頁面
+            $.ajax({
+                type: "GET",
+                url: "/00_LAB/API/shop/charge",
+                dataType: "json",
+                error: err => {
+                    console.log(err["responseText"])
+                },
+            }).then(function (e) {
+                console.log(e);
+                $.each(e, function (idx, elm) {
+                    newContent = $(`<li></li>`).addClass(`Card`);
+                    newContent.append($('<img>').prop({ 'id': elm.productID }));
+                    newContent.append(`<p>${elm.productTitle}</p>`);
+                    $('#boxOneUl').append(newContent)
+                });
+            })
+        });
+
+
+
+
+
+
+
+
+        
+        /* Tab */
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+
+</html>

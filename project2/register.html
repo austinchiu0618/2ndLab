@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+    <!-- 上列是font-awesome5.15.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        @import "./CSS/all.css";
+        @import "./CSS/register.css";
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html"><img id="logo" src="./image/logo.png" alt=""></img></a>
+    </nav>
+    <div class="title"><img src="./image/register.png" alt=""></div>
+    <hr color="#808080">
+    <div id="registerBox">
+        <form id="registerForm">
+            <span class="info user"><input type="text" id="userName" name="userName"><label
+                    for="userName">Username</label></span>
+            <p class="haveWrong" id="show"></p>
+            <span class="info pwd"><input type="password" id="userPwd" name="userPwd" autocomplete="off"><label
+                    for="userPwd">Password</label>
+            </span>
+            <p class="haveWrong"></p>
+            <span class="info pwdcheck"><input type="password" id="userPwdCheck" name="userPwdCheck"
+                    autocomplete="off"><label for="userPwdCheck">Check Password</label></span>
+            <p class="haveWrong"></p>
+            <span class="info email"><input type="mail" id="useremail" name="useremail"><label
+                    for="useremail">EMail</label></span>
+            <p class="haveWrong"></p>
+            <div>
+                <span class="info"><input type="button" id="btnIsOk" name="btnIsOk" value="確 認"></span>
+                <span class="info"><a href="./login.html"><input type="button" id="btnIsCancel" name="btnIsCancel"
+                            value="キャンセル"></a></span>
+            </div>
+        </form>
+    </div>
+    <div class="regFinsh">
+        <div>
+            <div>登録完了</div>
+            <button id="isfinish">確認</button>
+        </div>
+    </div>
+
+    <script src="./JavaScript/register.js"></script>
+</body>
+
+</html>

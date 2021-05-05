@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+    <!-- 上列是font-awesome5.15.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        @import "./CSS/all.css";
+        @import "./CSS/login.css";
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html"><img id="logo" src="./image/logo.png" alt=""></img></a>
+    </nav>
+    <div class="title">
+        <div class="title"><img src="./image/login.png" alt=""></div>
+    </div>
+    <hr color="#808080">
+    <div id="loginBox">
+        <form id="loginForm">
+            <span class="info user"><input type="text" id="userName" name="userName"><label
+                    for="userName">Username</label></span>
+            <p class="haveWrong"></p>
+            <span class="info pwd"><input type="password" id="userPwd" name="userPwd" autocomplete="off"><label
+                    for="userPwd">Password</label></span>
+            <p class="haveWrong"></p>
+            <span><input type="button" id="btnIsOk" value="ログインする"></span>
+        </form>
+        <div>
+            <span><a href="./register.html">会員登録</a></span>
+            <span><a href="">パスワードをお忘れ</a></span>
+        </div>
+    </div>
+    <div class="loginFinsh">
+        <div>
+            <div>ログインしました</div>
+            <button id="isfinish">確 認</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.loginFinsh').hide();
+        })
+
+        $("#btnIsOk").click(function () {
+            nameCheckSpace();
+            pwdCheckSpace();
+            if (isName == true && isPwd == true) {
+                var userData = {
+                    userName: `${userName.value}`,
+                    userPwd: `${userPwd.value}`,
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/00_LAB/API/login/sent",
+                    data: userData
+                }).then(function (e) {
+                    if (e == "true") {
+                        $('.loginFinsh').fadeIn("show");
+                    } else {
+                        $("p:nth-of-type(2)").html("<i class='fas fa-exclamation'></i>ユーザー名またはパスワードが正しくありません");
+                        $("#userName").val("");
+                        $("#userPwd").val("");
+                    }
+                });
+            }
+        });
+
+        $('#isfinish').click(function () {
+            window.location.href = "/00_LAB/project2/index.html"
+        });
+
+        // 監聽input(檢查帳號是否存在,Labal文字動畫) 
+        // ---------------------
+        $("#userName").focusout(function () {
+            nameCheckSpace()
+            // if (userName.value) {
+            //     var userNameData = {
+            //         userName: `${userName.value}`,
+            //     };
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "/00_LAB/API/login/nameCheck",
+            //         data: userNameData
+            //     }).then(function (e) {
+            //         $("p:nth-of-type(1)").html(e);
+            //     });
+            // }
+            if (userName.value) {
+                userName.className += ' active';
+                userName.placeholder = " ";
+            } else {
+                userName.classList.remove('active');
+                userName.placeholder = " "
+            }
+        }
+        );
+
+        $("#userPwd").focusout(function () {
+            pwdCheckSpace()
+            if (userPwd.value) {
+                userPwd.className += ' active';
+                userPwd.placeholder = " ";
+            } else {
+                userPwd.classList.remove('active');
+                userPwd.placeholder = " "
+            }
+        }
+        );
+
+        // 表單格式確認 (僅確認空白)
+        // ---------------------
+        var wrongText = document.getElementsByClassName('haveWrong')
+        function nameCheckSpace() {
+            if (userName.value == '') {
+                wrongText[0].innerHTML = '<i class="fas fa-exclamation"></i>  ユーザー名を入力してください';
+                isName = false;
+            } else {
+                wrongText[0].innerHTML = '';
+                isName = true
+            }
+        }
+
+        function pwdCheckSpace() {
+            if (userPwd.value == '') {
+                wrongText[1].innerHTML = '<i class="fas fa-exclamation"></i>  パスワードを入力してください';
+                isPwd = false;
+            } else {
+                wrongText[1].innerHTML = '';
+                isPwd = true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
