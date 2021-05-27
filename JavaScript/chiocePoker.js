@@ -24,7 +24,7 @@ $("#navLink").ready(function () {
         url: "/00_LAB/API/home/userInfo",
         dataType: "json",
         error: err => {
-            console.log(err["responseText"])
+            // console.log(err["responseText"])
         },
     }).then(function (e) {
         userInfo = e
@@ -118,7 +118,9 @@ $("#startBtn").click(function () {
 });
 
 // 換牌
+let playerChangeCard = false;
 $("#exchangeYES").click(function () {
+    playerChangeCard = true;
     $("#playrerCardType").text("")
     $("#message").text("")
     if (activeJS.length > 0) {
@@ -144,27 +146,31 @@ $("#exchangeYES").click(function () {
     } else {
         $("#message").text("Please Chioce Card")
     }
-
 });
 
 
 // 不換牌
 $("#exchangeNO").click(function () {
+
     $("#message").text("")
     $("#exchangBox").hide();
     $('.playerCard').css(
         'cursor', "default"
     );
+    playerDiscard()
     compDiscard()
     disAni()
     setTimeout(() => {
         computerHandCard_JS.innerHTML = ''
+        playerHandCard_JS.innerHTML = ''
         cardToHand('compCard', computerHandCard_JS, 'compImgFront');
+        cardToHand('playerCard', playerHandCard_JS, 'playerImgFront');
         dealCard(compHandCardArr, compImgFrontJs);
+        dealCard(playerHandCardArr, playerImgFrontJs)
         openShow()
-        $(".rasieBox").fadeIn();
+        // $(".rasieBox").fadeIn();
         setTimeout(() => {
-            console.log(compHandCardArr)
+            // console.log(compHandCardArr)
             whoFirstRaise()
         }, 2000);
     }, 7500);
@@ -363,6 +369,7 @@ function openCardAni(whoOpenCardAni) {
     whoOpenCardAni[2].style.transform += ' rotateY(180deg)'
     whoOpenCardAni[3].style.transform += ' rotateY(180deg)'
     whoOpenCardAni[4].style.transform += ' rotateY(180deg)'
+    console.log(whoOpenCardAni[0].style.transform);
 }
 
 function openShow() {
@@ -381,16 +388,16 @@ function openShow() {
 
 // 玩家換牌
 function playerDiscard() {
-
-    for (let index = 0; index < activeJS.length; index++) {
-        let temp = activeJS[index].src
-        activeArr[index] = temp.substr(-7, 3)
-    }
-
-    for (let i = 0; i < activeArr.length; i++) {
-        for (let j = 0; j < playerHandCardArr.length; j++) {
-            if (activeArr[i] == playerHandCardArr[j]) {
-                playerHandCardArr.splice(j, 1)
+    if (playerChangeCard) {
+        for (let index = 0; index < activeJS.length; index++) {
+            let temp = activeJS[index].src
+            activeArr[index] = temp.substr(-7, 3)
+        }
+        for (let i = 0; i < activeArr.length; i++) {
+            for (let j = 0; j < playerHandCardArr.length; j++) {
+                if (activeArr[i] == playerHandCardArr[j]) {
+                    playerHandCardArr.splice(j, 1)
+                }
             }
         }
     }
@@ -462,14 +469,14 @@ function compDiscard() {
         }
     }
     if (isTwoCase02 == true && comp > 1500 && comp < 15000) {
-        console.log("three")
+        console.log("two")
         if (probability < 95) {
             compDisArr.push(compHandCardArr[0])
             compHandCardArr.splice(0, 1)
         }
     }
     if (isTwoCase03 == true && comp > 1500 && comp < 15000) {
-        console.log("three")
+        console.log("two")
         if (probability < 95) {
             compDisArr.push(compHandCardArr[2])
             compHandCardArr.splice(2, 1)
@@ -501,15 +508,19 @@ function compDiscard() {
 
 // 拋棄手牌動畫
 function disAni() {
-    for (let disc of activeJS) {
-        disc.style.transition = '2s';
-        disc.style.transform = 'translateY(-50px)';
+    if (playerChangeCard) {
+        for (let disc of activeJS) {
+            disc.style.transition = '2s';
+            disc.style.transform = 'translateY(-50px)';
+        }
     }
     computerDisard.style.transform = 'translateY(0px)';
     computerDisard.style.opacity = 1;
     setTimeout(() => {
-        for (let disc of activeJS) {
-            disc.style.opacity = 0;;
+        if (playerChangeCard) {
+            for (let disc of activeJS) {
+                disc.style.opacity = 0;;
+            }
         }
         computerDisard.style.transform = 'translateY(50px)';
         computerDisard.style.opacity = 0;
@@ -546,8 +557,8 @@ function whoFirstRaise() {
             StraightFlush(playerHandCardArr);
             StraightFlush(compHandCardArr);
             showCardPoint();
-            console.log(playScore)
-            console.log(compScore)
+            // console.log(playScore)
+            // console.log(compScore)
         }, 1500)
     } else {
         $("#message").text("Computer First Rasie")
@@ -587,12 +598,12 @@ function compThinking() {
         } else {
             // 第二次加注
             if (parCompScore > 1600) {
-                console.log('big')
+                // console.log('big')
                 randomRaise(8);
             }
             if (parCompScore > 160 && parCompScore < 1600) {
                 if (parCompScore >= 1100) {
-                    console.log('2L')
+                    // console.log('2L')
 
                     if (chipX < 11) {
                         if (probability < 80) {
@@ -610,7 +621,7 @@ function compThinking() {
 
                 }
                 if (parCompScore >= 700) {
-                    console.log('2M')
+                    // console.log('2M')
 
                     if (chipX < 9) {
                         if (probability < 67) {
@@ -627,7 +638,7 @@ function compThinking() {
                     }
 
                 } else {
-                    console.log('2S')
+                    // console.log('2S')
 
                     if (chipX < 7) {
                         if (probability < 55) {
@@ -646,7 +657,7 @@ function compThinking() {
             }
             if (parCompScore < 160) {
                 if (parCompScore >= 110) {
-                    console.log('L')
+                    // console.log('L')
                     if (chipX < 9) {
                         if (probability < 67) {
                             randomRaise(4);
@@ -662,7 +673,7 @@ function compThinking() {
                     }
                 }
                 if (parCompScore >= 80) {
-                    console.log('M')
+                    // console.log('M')
                     if (chipX < 11) {
                         if (probability < 80) {
                             randomRaise(6);
@@ -677,7 +688,7 @@ function compThinking() {
                         }
                     }
                 } else {
-                    console.log('S')
+                    // console.log('S')
                     randomRaise(6);
                 }
             }
@@ -759,14 +770,13 @@ function randomRaise(manyRaise) {
 }
 
 function compChioceBiG() {
-    console.log("000")
-
+    // console.log("000")
     isBigWin = true;
     $("#message").text("強い順")
     whoWin()
 }
 function compChioceSmall() {
-    console.log("...")
+    // console.log("...")
     isSmallWin = true;
     $("#message").text("弱い順")
     whoWin();
@@ -782,19 +792,26 @@ function compGiveup() {
     }, 2000);
 }
 
+let isOver = false;
 function whoWin() {
-    StraightFlush(playerHandCardArr);
-    StraightFlush(compHandCardArr);
-    openCardAni(compCardJS)
-    setTimeout(() => { compshowCardPoint() }, 500)
-    setTimeout(() => {
-        if (isBigWin == true) {
-            parseInt(compScore) > parseInt(playScore) ? compWiner() : playerWiner();
-        }
-        if (isSmallWin == true) {
-            parseInt(compScore) < parseInt(playScore) ? compWiner() : playerWiner();
-        }
-    }, 3500);
+    if (isOver) {
+
+    } else {
+        StraightFlush(playerHandCardArr);
+        StraightFlush(compHandCardArr);
+        openCardAni(compCardJS);
+        isOver = true;
+        setTimeout(() => { compshowCardPoint() }, 500)
+        setTimeout(() => {
+            if (isBigWin == true) {
+                parseInt(compScore) > parseInt(playScore) ? compWiner() : playerWiner();
+            }
+            if (isSmallWin == true) {
+                parseInt(compScore) < parseInt(playScore) ? compWiner() : playerWiner();
+            }
+        }, 3500);
+    }
+
 }
 
 function playerWiner() {
@@ -953,7 +970,7 @@ function StraightFlush(arr) {
         if (`${arr[0].substr(0, 2)}` == `${arr[2].substr(0, 2)}` && `${arr[2].substr(0, 2)}` != `${arr[4].substr(0, 2)}`) {
             for (let index = 0; index < 2; index++) {
                 if (`${arr[index].substr(0, 2)}` != `${arr[index + 1].substr(0, 2)}`) {
-                    console.log(index)
+                    // console.log(index)
                     isThreeOfaKind = false;
                     break
                 }
