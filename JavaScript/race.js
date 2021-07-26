@@ -61,6 +61,7 @@ startBtn.addEventListener('click', playGame)
 
 //下注
 var TitleMoney = 9999
+$('#userMoney').html(`${TitleMoney}`)
 var oneMoney = 0
 var oneUpBtn = document.getElementsByClassName('upBtn')[0]
 var oneDownBtn = document.getElementsByClassName('downBtn')[0]
@@ -70,6 +71,7 @@ oneUpBtn.addEventListener('click', () => {
         TitleMoney -= 100
     }
     racerOneMoney.innerText = oneMoney
+    $('#userMoney').html(`${TitleMoney}`)
 });
 oneDownBtn.addEventListener('click', () => {
     if (oneMoney >= 100) {
@@ -78,6 +80,7 @@ oneDownBtn.addEventListener('click', () => {
     } else {
     }
     racerOneMoney.innerText = oneMoney
+    $('#userMoney').html(`${TitleMoney}`)
 });
 
 var twoMoney = 0
@@ -89,6 +92,7 @@ twoUpBtn.addEventListener('click', () => {
         TitleMoney -= 100
     }
     racerTwoMoney.innerText = twoMoney
+    $('#userMoney').html(`${TitleMoney}`)
 });
 twoDownBtn.addEventListener('click', () => {
     if (twoMoney >= 100) {
@@ -97,6 +101,7 @@ twoDownBtn.addEventListener('click', () => {
     } else {
     }
     racerTwoMoney.innerText = twoMoney
+    $('#userMoney').html(`${TitleMoney}`)
 });
 
 var threeMoney = 0
@@ -108,6 +113,7 @@ threeUpBtn.addEventListener('click', () => {
         TitleMoney -= 100
     }
     racerThreeMoney.innerText = threeMoney
+    $('#userMoney').html(`${TitleMoney}`)
 });
 threeDownBtn.addEventListener('click', () => {
     if (threeMoney >= 100) {
@@ -116,6 +122,7 @@ threeDownBtn.addEventListener('click', () => {
     } else {
     }
     racerThreeMoney.innerText = threeMoney
+    $('#userMoney').html(`${TitleMoney}`)
 });
 
 
@@ -139,20 +146,21 @@ function gameIsFinal() {
     winer()
     switch (overRacer[0]) {
         case "racerOne":
-            nowTitleMoney = parseInt(nowTitleMoney) + parseInt(oneMoney * 1.5);
+            TitleMoney = parseInt(TitleMoney) + parseInt(oneMoney * 1.5);
             changeMoney()
             break;
         case "racerTwo":
-            nowTitleMoney = parseInt(nowTitleMoney) + parseInt(twoMoney * 1.5);
+            TitleMoney = parseInt(TitleMoney) + parseInt(twoMoney * 1.5);
             changeMoney()
             break;
         case "racerThree":
-            nowTitleMoney = parseInt(nowTitleMoney) + parseInt(threeMoney * 1.5);
+            TitleMoney = parseInt(TitleMoney) + parseInt(threeMoney * 1.5);
             changeMoney()
             break;
         default:
             break;
     }
+    $('#userMoney').html(`${TitleMoney}`)
 }
 
 $('.FinshBack').click(function () {
