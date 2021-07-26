@@ -60,7 +60,7 @@ function playGame() {
 startBtn.addEventListener('click', playGame)
 
 //下注
-var TitleMoney = 0
+var TitleMoney = 9999
 var oneMoney = 0
 var oneUpBtn = document.getElementsByClassName('upBtn')[0]
 var oneDownBtn = document.getElementsByClassName('downBtn')[0]
