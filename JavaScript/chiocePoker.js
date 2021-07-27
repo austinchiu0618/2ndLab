@@ -79,7 +79,8 @@ var compTitChip = Math.floor(Math.random() * 30 + 10)
 var compChip = 1
 var playerChip = 1
 var raiseMoney = 0
-var TitleMoney = 0
+var TitleMoney = 99999
+ $("#userMoney").text(`${TitleMoney}`);
 
 
 var isCompGiveup = false
@@ -183,6 +184,7 @@ $("#upBtn").click(() => {
         raiseMoney += 100;
         TitleMoney -= 100;
     }
+     $("#userMoney").text(`${TitleMoney}`);
     racerMoney.innerText = raiseMoney;
 })
 
@@ -191,6 +193,7 @@ $("#downBtn").click(() => {
         raiseMoney -= 100;
         TitleMoney += 100;
     }
+     $("#userMoney").text(`${TitleMoney}`);
     racerMoney.innerText = raiseMoney;
 })
 
